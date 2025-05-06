@@ -20,7 +20,6 @@ Cada *task* verifica se o sistema está no **modo normal** ou **modo noturno**, 
 
 ### `vButtonA`
 - Controla o modo do semáforo (normal ou noturno).
-- **Observação**: Esta *task* apresenta mau funcionamento, podendo ser devido a bug ou sincronização incorreta.
 
 ### `vLedsRgb`
 - Representa o semáforo usando um LED RGB.

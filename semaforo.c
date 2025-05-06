@@ -38,21 +38,21 @@ void vButtonA()
      */
     gpio_init(BUTTON_A);
     gpio_set_dir(BUTTON_A, GPIO_IN);
-    gpio_pull_down(BUTTON_A);
-    uint32_t last_time = 0;
-    uint32_t current_time;
+    gpio_pull_up(BUTTON_A);
+    absolute_time_t last_time = 0;
+    absolute_time_t current_time;
 
     while(true)
     {
         current_time = to_ms_since_boot(get_absolute_time());
 
-        if ((!gpio_get(BUTTON_A)) && (current_time - last_time > 500))
+        if ((!gpio_get(BUTTON_A)) && (current_time - last_time > 200))
         {
            last_time = current_time;
            night_mode = !night_mode;
            while (!gpio_get(BUTTON_A));
         }
-        vTaskDelay(pdMS_TO_TICKS(100));
+        vTaskDelay(pdMS_TO_TICKS(50));
     }
 }
 
